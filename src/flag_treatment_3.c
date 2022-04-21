@@ -6,7 +6,7 @@
 /*   By: atenhune <atenhune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:17:00 by atenhune          #+#    #+#             */
-/*   Updated: 2022/04/13 13:23:50 by atenhune         ###   ########.fr       */
+/*   Updated: 2022/04/21 13:10:34 by atenhune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ char	*space_flag_treatment(char *s, t_flags *flags)
 		ft_memmove(&s[1], &s[0], ft_strlen(s));
 		s[0] = ' ';
 	}
-	else if ((flags->original_len < flags->width > flags->precision))
+	else if ((flags->original_len < flags->width > flags->precision
+			&& flags->minus == 0))
 		s[0] = ' ';
+	else if (flags->minus)
+	{
+		ft_memmove(&s[1], &s[0], strlen_minus_space(s));
+		s[0] = ' ';
+	}
 	return (s);
 }
 

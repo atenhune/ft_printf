@@ -6,7 +6,7 @@
 /*   By: atenhune <atenhune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 13:39:58 by atenhune          #+#    #+#             */
-/*   Updated: 2022/04/13 13:24:09 by atenhune         ###   ########.fr       */
+/*   Updated: 2022/04/21 13:07:33 by atenhune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ void	flag_modifier(t_flags *flags)
 		flags->dot = 0;
 		flags->precision = 0;
 	}
+	if (flags->spec == 'x' || flags->spec == 'X' || flags->spec == 'o'
+		|| flags->spec == 'p')
+	{
+		flags->space = 0;
+		flags->plus = 0;
+	}
 	if (flags->spec == 'c')
 	{
 		flags->space = 0;
@@ -86,11 +92,6 @@ void	flag_modifier(t_flags *flags)
 	}
 	if (flags->spec == 's')
 		flags->space = 0;
-	if (flags->spec == 'p')
-	{
-		flags->space = 0;
-		flags->plus = 0;
-	}
 }
 
 char	*flag_trafficker(char *s, t_flags *flags)
