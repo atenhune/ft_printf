@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   less_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atenhune <atenhune@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antti <antti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 11:26:14 by atenhune          #+#    #+#             */
-/*   Updated: 2022/04/22 13:55:33 by atenhune         ###   ########.fr       */
+/*   Updated: 2022/04/22 18:16:33 by antti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 int main(void)
 {
-	int a;
-	int *p = &a;
-	int *pp;
 	printf("%s %s\n", "moro", "mita kuuluu");
 	printf("%s %s %s\n", "moro", "mita kuuluu", "?");
 	printf("%s %s %s %s %s\n", "moro", "", "mita", "SInulle", "kuuluu");
@@ -30,7 +27,15 @@ int main(void)
 	printf("%d %d %d %d\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN);
 	printf("%d %d %d %d\n", 1, 2, 2, 2);
 	printf("%d %d %d %d %d %d %d %d %d %d %d %d\n", 1, 2, 2, 2, 4, 2, 222222, 4444, 4, 10, -123123123, 1);
-	printf("%p %p\n", p, pp);
-	printf("HELOO%p %pWORLD\n", p, pp);
-	printf("HI%p WHATS%pUP\n", p, pp);
+	// printf("%p %p\n", p, pp);
+	// printf("HELOO%p %pWORLD\n", p, pp);
+	// printf("HI%p WHATS%pUP\n", p, pp);
 }
+	// int a;
+	// int *p = &a;
+	// int *pp;
+
+
+
+
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compare.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atenhune <atenhune@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antti <antti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 11:07:51 by atenhune          #+#    #+#             */
-/*   Updated: 2022/04/22 13:50:50 by atenhune         ###   ########.fr       */
+/*   Updated: 2022/04/22 18:52:04 by antti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int main(int argc, char **argv)
 	int fd;
 	int i = 0;
 	int j = 0;
-	int count = 1;
+	int k = 0;
+	int count = 0;
+	int lasku = 0;
 	int read_ret;
-	int offset = 18;
+	int offset = 19;
 	printf("\n%s%s:\n", KMAG, argv[2]);
 	fd = open(argv[1], O_RDONLY);
 	read_ret = read(fd, buff, 10000);
@@ -39,18 +41,22 @@ int main(int argc, char **argv)
 		}
 		if(buff[i]=='\n')
 		{
-			printf("%s[OK]", GREEN);
+			if (k != 1)
+				printf("%s[OK]", GREEN);
+			k = 0;
+			lasku++;
 			count++;
 			j = 0; 
 		}
 		if(buff[i]== '|')
 		{
 			printf("%s[FAIL](%d)", RED, count + offset);
-			count++;
+			k = 1;
 			j = 0; 
 		}
 		i++;
 	}
+	printf("\n\n%s%d / %d\n", KMAG, lasku, count);
 	close(fd);
 
 
